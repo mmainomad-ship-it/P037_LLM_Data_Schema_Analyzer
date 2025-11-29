@@ -20,7 +20,15 @@ def analyze_data_schema(df):
     data_info = buffer.getvalue()  # Get string from buffer
     data_head = df.head(3).to_markdown(index=False)  # Get sample rows
     # Step 4 (Part 2): Construct Prompts
-    system_msg = "You are a Data Analyst. Analyze this dataset structure and sample. Describe the data and suggest 2 analysis steps."
+    system_msg = (
+        "You are a Senior Data Scientist. "
+        "Analyze the provided Pandas DataFrame schema and sample data. "
+        "Output a professional report in Markdown with these strict sections:\n"
+        "1. **Dataset Domain**: Infer the industry or topic.\n"
+        "2. **Feature Analysis**: Distinguish between numerical and categorical features.\n"
+        "3. **Target Hypothesis**: Guess which column is the likely target for prediction.\n"
+        "4. **Recommended Actions**: Suggest 3 specific technical tasks (e.g., 'One-hot encode X', 'Check correlation between Y and Z')."
+    )
     user_msg = f"Schema:\n{data_info}\n\nSample:\n{data_head}"
 
     # Step 4 (Part 3): Call Local LLM
