@@ -1,0 +1,6 @@
+id,sqft,bedrooms,bathrooms,price,neighborhood,year_built
+1,1500,3,2,450000,Suburban,1995
+2,2200,4,3,650000,Urban,2010
+3,900,2,1,250000,Rural,1980
+4,3000,5,4,850000,Suburban,2021
+5,1200,3,1.5,380000,Urban,2005
